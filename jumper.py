@@ -15,16 +15,47 @@ class Jumper:
         self.head = "   o"
         self.body = "  /|\\"
         self.legs = "  / \\"
+        self.dead_head = "   x"
 
-    def jumper(self):
-        print(self.string_1)
-        print(self.string_2)
-        print(self.string_3)
-        print(self.string_4)
-        print(self.head)
-        print(self.body)
-        print(self.legs)
+    def jumper(self, incorrect_guesses):
 
-jumper = Jumper()
+        if incorrect_guesses == 0:
+            print(self.string_1)
+            print(self.string_2)
+            print(self.string_3)
+            print(self.string_4)
+            print(self.head)
+            print(self.body)
+            print(self.legs)
+        
+        elif incorrect_guesses == 1:
+            print(self.string_2)
+            print(self.string_3)
+            print(self.string_4)
+            print(self.head)
+            print(self.body)
+            print(self.legs)
 
-jumper.jumper()
+        elif incorrect_guesses == 2:
+            print(self.string_3)
+            print(self.string_4)
+            print(self.head)
+            print(self.body)
+            print(self.legs)
+
+        elif incorrect_guesses == 3:
+            print(self.string_4)
+            print(self.head)
+            print(self.body)
+            print(self.legs)
+        
+        elif incorrect_guesses == 4:
+            print(self.dead_head)
+            print(self.body)
+            print(self.legs)
+        
+    
+
+# jumper = Jumper()
+
+# jumper.jumper()

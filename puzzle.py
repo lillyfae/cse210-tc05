@@ -32,6 +32,8 @@ class Puzzle:
         Returns: the word
         '''
         self.word = random.choice(self.word_list)
+
+        return self.word
         
 
     def spaces(self):
@@ -40,9 +42,12 @@ class Puzzle:
             spaces += "_"
         print(spaces)
 
-puzzle = Puzzle()
 
-puzzle.random_word()
+# puzzle = Puzzle()
 
-puzzle.spaces()
+# puzzle.random_word()
+
+# puzzle.spaces()
+
+
 
