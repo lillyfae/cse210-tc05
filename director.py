@@ -1,6 +1,6 @@
-from puzzle import Puzzle
-from jumper import Jumper
-from check import Check
+from game.puzzle import Puzzle
+from game.jumper import Jumper
+from game.check import Check
 
 
 class Director:
@@ -11,38 +11,55 @@ class Director:
         self.puzzle = Puzzle()
         self.jumper = Jumper()
         self.check = Check()
-        self.word = [] 
         self.keep_playing = True
-        self.guess = False
-        self.incorrect_guesses = 0
+        self.spaces = []
         
     
     def start_game(self):
-        self.word = self.puzzle.random_word()
+        '''This displays the puzzle, starts the game and continues until there is a win or a loss'''
+        self.spaces = puzzle.create_spaces()
+        self.jumper.jumper(self.check.incorrect_guesses)
 
         while self.keep_playing:
-            self.display_game()
             self.guess_and_check()
-        
-
-    def display_game(self):
-        '''This shows and displays the game borad and the paerchueter'''
-
-        self.puzzle.spaces()
-        self.jumper.jumper(self.incorrect_guesses)
+            self.display_game()
+            self.is_game_still_going()
         
 
     def guess_and_check(self):
-        '''Takes the players guess and checks if it is correct. It updates and keeps track of the amount of incorrect guesses'''
+        '''This asks player for guess and updates game based on guess'''
+        self.check.guess()
+        self.spaces = self.check.check(self.puzzle.random_word())
         
-        letter_guessed = input("Guess a letter [a-z]: ")
 
-        for i in range(len(self.word)):
-            if letter_guessed == self.word[i]:
-                guess = True
-            else:
-                guess = False
-                incorrect_guesses += 1
+    def display_game(self):
+        '''This shows and displays the new game borad and the paerchueter'''
+
+        for i in range(len(spaces)):
+            print(spaces[i], end = ' ')
+        
+        self.jumper.jumper(self.check.incorrect_guesses)
+
+    
+    
+    def is_game_still_going(self):
+        '''This checks if the player has won or lost'''
+       
+        if incorrect_guesses == 4:
+            self.jumper.jumper(self.check.incorrect_guesses)
+            self.keep_playing = False
+            print("You Lose")
+
+        elif "_" not in spaces:
+            self.keep_playing = False
+            print("You Win")
+        
+        else:
+            self.keep_playing = True
+        
+        
+        
+
 
         
 

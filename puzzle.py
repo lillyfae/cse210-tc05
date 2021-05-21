@@ -36,11 +36,15 @@ class Puzzle:
         return self.word
         
 
-    def spaces(self):
-        spaces = ''
+    def create_spaces(self):
+        spaces = []   
         for i in range(len(self.word)):
-            spaces += "_"
-        print(spaces)
+            spaces.append( '_')
+
+        for i in range(len(spaces)):
+            print(spaces[i], end = ' ')
+
+           
 
 
 # puzzle = Puzzle()
