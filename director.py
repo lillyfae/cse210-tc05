@@ -29,14 +29,14 @@ class Director:
     def guess_and_check(self):
         '''This asks player for guess and updates game based on guess'''
         self.check.guess()
-        self.spaces = self.check.check(self.puzzle.random_word())
+        self.spaces = self.check.check(self.puzzle.random_word(self.spaces))
         
 
     def display_game(self):
         '''This shows and displays the new game borad and the paerchueter'''
 
-        for i in range(len(spaces)):
-            print(spaces[i], end = ' ')
+        for i in range(len(self.spaces)):
+            print(self.spaces[i], end = ' ')
         
         self.jumper.jumper(self.check.incorrect_guesses)
 
@@ -45,7 +45,7 @@ class Director:
     def is_game_still_going(self):
         '''This checks if the player has won or lost'''
        
-        if incorrect_guesses == 4:
+        if self.check.incorrect_guesses == 4:
             self.jumper.jumper(self.check.incorrect_guesses)
             self.keep_playing = False
             print("You Lose")

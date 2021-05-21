@@ -44,6 +44,8 @@ class Puzzle:
         for i in range(len(spaces)):
             print(spaces[i], end = ' ')
 
+        return spaces
+
            
 
 
