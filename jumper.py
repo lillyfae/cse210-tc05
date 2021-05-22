@@ -53,7 +53,7 @@ class Jumper:
         elif incorrect_guesses == 4:
             print(self.game_over_head)
             print(self.body)
-            print(self.legs)
+            print(self.legs) 
         
     
 

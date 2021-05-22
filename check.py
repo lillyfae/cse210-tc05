@@ -4,7 +4,7 @@ class check:
     def __init__(self):
         self.incorrect_guesses = 0
         self.letter_guessed = " "
-        self.word_array = []
+        self.word_array = [] 
 
 
     def guess(self):

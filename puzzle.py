@@ -24,7 +24,7 @@ class Puzzle:
         "load","forth","well","mine","catch","complex"
         "useful","camera","teacher","sit","spin","wind"
         "drop","coal","every","friend","throw","wool"
-        "daughter","bound","sight","ordinary","inch","pan"]
+        "daughter","bound","sight","ordinary","inch","pan"] 
     
     def random_word(self):
         '''Gets a random word from the word list. 
