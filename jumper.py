@@ -21,6 +21,8 @@ class Jumper:
     def jumper(self, incorrect_guesses):
 
         if incorrect_guesses == 0:
+            print("")
+            print("")
             print(self.string_1)
             print(self.string_2)
             print(self.string_3)
@@ -30,6 +32,8 @@ class Jumper:
             print(self.legs)
         
         elif incorrect_guesses == 1:
+            print("")
+            print("")
             print(self.string_2)
             print(self.string_3)
             print(self.string_4)
@@ -38,6 +42,8 @@ class Jumper:
             print(self.legs)
 
         elif incorrect_guesses == 2:
+            print("")
+            print("")
             print(self.string_3)
             print(self.string_4)
             print(self.head)
@@ -45,12 +51,17 @@ class Jumper:
             print(self.legs)
 
         elif incorrect_guesses == 3:
+            print("")
+            print("")
             print(self.string_4)
             print(self.head)
             print(self.body)
             print(self.legs)
         
-        elif incorrect_guesses == 4:
+        # elif incorrect_guesses == 4:
+        else:
+            print("")
+            print("")
             print(self.game_over_head)
             print(self.body)
             print(self.legs) 

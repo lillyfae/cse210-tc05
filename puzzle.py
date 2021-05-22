@@ -25,6 +25,8 @@ class Puzzle:
         "useful","camera","teacher","sit","spin","wind"
         "drop","coal","every","friend","throw","wool"
         "daughter","bound","sight","ordinary","inch","pan"] 
+
+        self.word = " "
     
     def random_word(self):
         '''Gets a random word from the word list. 
@@ -40,8 +42,8 @@ class Puzzle:
         spaces = []   
         for i in range(len(self.word)):
             spaces.append( '_')
-
-        for i in range(len(spaces)):
+            
+        for i in range(len(self.word)):
             print(spaces[i], end = ' ')
 
         return spaces

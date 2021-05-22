@@ -1,6 +1,6 @@
-from game.puzzle import Puzzle
-from game.jumper import Jumper
-from game.check import Check
+from puzzle import Puzzle
+from jumper import Jumper
+from check import Check
 
 
 class Director:
@@ -13,12 +13,15 @@ class Director:
         self.check = Check()
         self.keep_playing = True
         self.spaces = []
+        self.word = " "
         
     
     def start_game(self):
         '''This displays the puzzle, starts the game and continues until there is a win or a loss'''
-        self.spaces = puzzle.create_spaces()
+        self.puzzle.create_spaces()
         self.jumper.jumper(self.check.incorrect_guesses)
+        self.word = self.puzzle.random_word()
+        
 
         while self.keep_playing:
             self.guess_and_check()
@@ -29,14 +32,14 @@ class Director:
     def guess_and_check(self):
         '''This asks player for guess and updates game based on guess'''
         self.check.guess()
-        self.spaces = self.check.check(self.puzzle.random_word(self.spaces))
+        self.check.check(self.word, self.puzzle.create_spaces())
         
 
     def display_game(self):
         '''This shows and displays the new game borad and the paerchueter'''
 
-        for i in range(len(self.spaces)):
-            print(self.spaces[i], end = ' ')
+        for i in range(len(self.check.spaces)):
+            print(self.check.spaces[i], end = ' ')
         
         self.jumper.jumper(self.check.incorrect_guesses)
 
@@ -50,7 +53,7 @@ class Director:
             self.keep_playing = False
             print("You Lose")
 
-        elif "_" not in spaces:
+        elif "_" not in self.check.spaces:
             self.keep_playing = False
             print("You Win")
         
