@@ -1,3 +1,4 @@
+
 class Jumper:
     ''' This class is to layout the parachuter.
     
@@ -15,7 +16,7 @@ class Jumper:
         self.head = "   o"
         self.body = "  /|\\"
         self.legs = "  / \\"
-        self.dead_head = "   x"
+        self.game_over_head = "   x"
 
     def jumper(self, incorrect_guesses):
 
@@ -50,9 +51,9 @@ class Jumper:
             print(self.legs)
         
         elif incorrect_guesses == 4:
-            print(self.dead_head)
+            print(self.game_over_head)
             print(self.body)
-            print(self.legs)
+            print(self.legs) 
         
     
 
