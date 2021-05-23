@@ -1,6 +1,5 @@
 import random
 
-
 class Puzzle:
     '''The purpose of this class is to randomly select a word from the word list.
     
@@ -9,7 +8,8 @@ class Puzzle:
 
     Attributes:
         word_list (list): a list of words for the puzzle to choose from
-        puzzle (string): a random word from the word list
+        chosen_word (string): a random word from the word list
+        spaces (list of strings): a list of characters that will initially contain spaces and be filled in with player guesses
     '''
 
     def __init__(self):
@@ -26,36 +26,23 @@ class Puzzle:
         "drop","coal","every","friend","throw","wool"
         "daughter","bound","sight","ordinary","inch","pan"] 
 
-        self.word = " "
+        self.chosen_word = self.random_word()
+        self.create_spaces()
     
     def random_word(self):
         '''Gets a random word from the word list. 
         
         Returns: the word
         '''
-        self.word = random.choice(self.word_list)
-
-        return self.word
-        
+        return random.choice(self.word_list)
 
     def create_spaces(self):
-        spaces = []   
-        for i in range(len(self.word)):
-            spaces.append( '_')
-            
-        for i in range(len(self.word)):
-            print(spaces[i], end = ' ')
+        self.spaces = []   
+        for i in range(len(self.chosen_word)):
+            self.spaces.append('_')
 
-        return spaces
-
-           
-
-
-# puzzle = Puzzle()
-
-# puzzle.random_word()
-
-# puzzle.spaces()
-
-
+    def print_spaces(self):
+        for ch in self.spaces:
+            print(ch + " ", end='')
+        print('\n')
 
